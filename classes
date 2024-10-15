@@ -1,0 +1,70 @@
+1. Třídy a objekty v Pythonu
+Třída je jakási šablona, podle které lze vytvářet konkrétní objekty. Třída definuje, jaké vlastnosti a chování (metody) budou mít všechny objekty, které z ní vzniknou.
+Objekt je konkrétní instance třídy. Když vytvoříme objekt z třídy, říkáme tomu, že jsme instanciovali třídu.
+Příklad:
+
+python
+Zkopírovat kód
+class Pes:
+    def __init__(self, jmeno, rasa):
+        self.jmeno = jmeno  # Objekt bude mít vlastnost 'jmeno'
+        self.rasa = rasa    # a vlastnost 'rasa'
+
+pes1 = Pes("Azor", "Německý ovčák")  # Vytváříme objekt pes1 z třídy Pes
+print(pes1.jmeno)  # Výstup: Azor
+Vysvětlení: V tomto příkladu třída Pes obsahuje vlastnosti jmeno a rasa, které se nastaví, když se objekt vytvoří. Vytvořili jsme objekt pes1, který má jméno "Azor" a je to "Německý ovčák". Když zavoláme pes1.jmeno, získáme jméno psa.
+
+2. Jak definovat třídu
+K definici třídy používáme klíčové slovo class a název třídy. Název třídy by měl být v CamelCase (velké písmeno na začátku každého slova).
+
+python
+Zkopírovat kód
+class MojeTrida:
+    # Vlastnosti a metody třídy zde
+    pass  # Pokud nechceme zatím nic přidat
+3. Atributy a metody třídy
+Atributy jsou proměnné, které uchovávají data objektu. Definujeme je v metodě __init__.
+Metody jsou funkce, které pracují s těmito atributy a určují chování objektů.
+Příklad:
+
+python
+Zkopírovat kód
+class Auto:
+    def __init__(self, model, rok):
+        self.model = model  # Atributy objektu
+        self.rok = rok
+
+    def zobraz_info(self):
+        print(f"{self.model} je z roku {self.rok}.")
+Vysvětlení: Třída Auto má dvě vlastnosti (model a rok). Metoda zobraz_info je funkce, která zobrazí informace o autě. Vytvořený objekt bude mít tyto vlastnosti a metody.
+
+4. Metoda __init__
+__init__ je speciální metoda, která se automaticky zavolá při vytvoření objektu. Slouží k inicializaci vlastností objektu.
+Příklad:
+
+python
+Zkopírovat kód
+class Osoba:
+    def __init__(self, jmeno, vek):
+        self.jmeno = jmeno
+        self.vek = vek
+Vysvětlení: Metoda __init__ třídy Osoba zajišťuje, že když vytvoříme novou osobu, musíme zadat jméno a věk. Tyto hodnoty se uloží do atributů objektu.
+
+5. Dědičnost v Pythonu
+Dědičnost umožňuje vytvořit novou třídu, která zdědí vlastnosti a metody z jiné (nadřazené) třídy. Nová třída se nazývá podřízená nebo potomková třída a může přidávat nebo upravovat funkčnost.
+Příklad:
+
+python
+Zkopírovat kód
+class Zvire:
+    def __init__(self, jmeno):
+        self.jmeno = jmeno
+
+    def zvuk(self):
+        print(f"{self.jmeno} vydává nějaký zvuk.")
+
+class Pes(Zvire):  # Pes dědí ze Zvire
+    def zvuk(self):
+        print(f"{self.jmeno} štěká.")
+Vysvětlení: Třída Pes dědí z třídy Zvire, takže přebírá všechny vlastnosti a metody třídy Zvire. Můžeme však metodu zvuk v třídě Pes přepsat, aby místo obecného zvuku pes štěkal.
+
